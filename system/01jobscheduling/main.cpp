@@ -105,9 +105,7 @@ void JobHandler(job* jobs, int method)
                 break;
             }
         }
-
         // 根据 method 不同进行排序
-
         // FIFO
         if (method == 0) {
             sort(jv.begin(), jv.end(), fifosort);
