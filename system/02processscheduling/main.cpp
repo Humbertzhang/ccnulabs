@@ -184,7 +184,7 @@ void ProcessHandler(process* processes, int method)
 					pf = &q1.front();
 					pf->runtime -= TIMESLICE;
 					current = timeadd(current, TIMESLICE);
-					printf("%d %d %d %d %d\n", pf->pid, pf->level, pf->waittime, current, pf->entertime);
+					printf("%d    %d     %d     %d     %d\n", pf->pid, pf->level, pf->waittime, current, pf->entertime);
 					int q1size = q1.size();
 					int q2size = q2.size();
 					int q3size = q3.size();
@@ -225,7 +225,7 @@ void ProcessHandler(process* processes, int method)
 				process* pf;
 				for(int j = 0; j < q2t && !q2.empty(); j+= TIMESLICE) {
 					pf = &q2.front();
-					printf("%d %d %d %d %d\n", pf->pid, pf->level, pf->waittime, current, pf->entertime);
+					printf("%d     %d     %d     %d     %d\n", pf->pid, pf->level, pf->waittime, current, pf->entertime);
 					pf->runtime -= TIMESLICE;
 					current = timeadd(current, TIMESLICE);
 					for(int i = 0; i < q2.size(); i++) {
@@ -264,7 +264,7 @@ void ProcessHandler(process* processes, int method)
 				process* pf;
 				for(int j = 0; j < q3t && !q3.empty(); j+= TIMESLICE) {
 					pf = &q3.front();
-					printf("%d %d %d %d %d\n", pf->pid, pf->level, pf->waittime, current, pf->entertime);
+					printf("%d    %d    %d     %d     %d\n", pf->pid, pf->level, pf->waittime, current, pf->entertime);
 					pf->runtime -= TIMESLICE;
 					current = timeadd(current, TIMESLICE);
 					for(int i = 0; i < q3.size(); i++) {
@@ -299,6 +299,6 @@ void ProcessHandler(process* processes, int method)
 				}
 			}
 		}
-		printf("waittime average: %d", waittimeall/N);
+		printf("waittime average: %d\n", waittimeall/N);
 	}
 }
